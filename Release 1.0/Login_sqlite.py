@@ -6,7 +6,7 @@ from tkinter import messagebox as mb	#Nos permite abrir ventanas de mensajes
 import sqlite3							#Nos permite conectarnos a una base de datos (sqlite3)
 
 ventana=tk.Tk()						#Llamamos la funcion
-ventana.title("_Mi primer Login_")	#Titulo de la ventana principal
+ventana.title("Scalogin")	#Titulo de la ventana principal
 ventana.geometry("280x450+300+250")	#Tamaño de nuestra ventana Principal
 	
 color='#c5e2f6'			#Codigo HEX del color de fondo usado
@@ -46,7 +46,7 @@ def login():
 		mb.showinfo(title="Login Correcto",message="Usuario y contraseña correctos")		#Mostramos 'Login Correcto'
 	else:
 		mb.showerror(title="Login incorrecto",message="Usuario o contraseña incorrecto")	#Mostramos 'Login incorrecto'
-	#c.close()
+
 
 def nuevaVentana():							#Funcion nuevaVentana . Nos permitira el registro de nuevos usuarios
 	newVentana=tk.Toplevel(ventana)			#Definimos 'newVentana'
@@ -89,12 +89,12 @@ def nuevaVentana():							#Funcion nuevaVentana . Nos permitira el registro de n
 			newVentana.destroy()		#Cerramos la ventana de registro
 		else:	#Se ejecutara si las contraseñas no coinciden
       
-			mb.showerror(title="Contraseña Incorrecta",message="Error¡¡¡ \nLas contraseñas no coinciden.")	#Mostramos un mensaje
+			mb.showerror(title="Contraseña Incorrecta",message="Error \nLas contraseñas no coinciden.")	#Mostramos un mensaje
 			c.close()		#Nos permite cerrar el cursor ...
 			db.close()
   
 	#El siguiente comando (boton) nos permite llamar ala funcion registro
-	buttons=tk.Button(newVentana,text="Registrar ¡",command=registro,bg=color,font=("Arial Rounded MT Bold",22)).pack(side="bottom")
+	buttons=tk.Button(newVentana,text="Registrar",command=registro,bg=color,font=("Arial Rounded MT Bold",22)).pack(side="bottom")
 	
 Label(ventana,text=" ",bg=color,font=("Arial",22)).pack()		#Solo es una linea vacia ... (lo use para separar el boton) 
 Button(text=" ENTRAR ",command=login,bg='#a6d4f2',font=("Arial Rounded MT Bold",22)).pack()		#Boton ==> funcion 'login'
