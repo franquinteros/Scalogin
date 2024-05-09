@@ -2,8 +2,12 @@
 from tkinter import *					
 import tkinter as tk					#Importamos TkInter
 from PIL import ImageTk,Image			#para manipular imagenes
+#from pathlib import Path 				#Usuario de la PC
 from tkinter import messagebox as mb	#Nos permite abrir ventanas de mensajes
 import sqlite3							#Nos permite conectarnos a una base de datos (sqlite3)
+import os
+
+carpeta = str(os.path.dirname(os.path.abspath(__file__))) 	# Localización de la carpeta
 
 ventana=tk.Tk()						#Llamamos la funcion
 ventana.title("Scalogin")	#Titulo de la ventana principal
@@ -15,13 +19,13 @@ ventana['bg']=color		#Definimos nuestra ventana 'bg' con el valor 'color'
 Label(ventana,bg=color,text="SCALOGIN",font=("Arial Black",32)).pack()	#Mostramos texto 'Login'
 
 #Abrir imagen para ventana principal
-imagen=Image.open("/Users/franciscoquinteros/Documents/sqlite/LOGIN/login_tkinter_python/img/scalogin.jpeg")			
+imagen=Image.open(carpeta+"/img/scalogin.jpeg")			
 imagen=imagen.resize((360,360),Image.ADAPTIVE)		
 photoImg=ImageTk.PhotoImage(imagen)					
 panel=tk.Label(ventana,image=photoImg).pack()	
 	
 #Abrir imagen para ventana de registro
-img_reg=Image.open("/Users/franciscoquinteros/Documents/sqlite/LOGIN/login_tkinter_python/img/scalogin.2.jpeg")						
+img_reg=Image.open(carpeta+"/img/scalogin.2.jpeg")						
 img_reg=img_reg.resize((360,360),Image.ADAPTIVE)	
 photo_reg=ImageTk.PhotoImage(img_reg)	
 			
@@ -34,7 +38,7 @@ caja2=Entry(ventana,show="*")
 caja2.pack()															
 
 #Conexion DB
-db=sqlite3.connect('/Users/franciscoquinteros/Documents/sqlite/LOGIN/login_tkinter_python/login.db')		
+db=sqlite3.connect(carpeta+"login.db")	
 c=db.cursor()						
 
 #Ejecutamos la consulta, se verifica si el usuario existe
