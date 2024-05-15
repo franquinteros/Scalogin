@@ -3,10 +3,10 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MYSQL_HOST = 'Local'
+    MYSQL_HOST = 'localhost'
     MYSQL_USER = 'Root'
     MYSQL_PASSWORD = 'adminadmin'
-    MYSQL_DB = 'scalogin'    
+    MYSQL_DB = 'Scalogin'    
     
 config = {
     'development' : DevelopmentConfig

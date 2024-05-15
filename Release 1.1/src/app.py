@@ -17,19 +17,17 @@ def index():
 @app.route('/login', methods = ['GET','POST'])
 def login():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        user = User(0,request.form[email],request.form[password])
+        user = User(0,request.form['email'],request.form['password'])
         logged_user = ModelUser.login(db,user)
         if logged_user != None:
             if logged_user.password:
-                return redirect(url_for('/home'))
+                return redirect(url_for('home')) 
             else: 
                 flash("Contraseña inválida...")
-            return render_template('home')
+            return render_template('./auth/login.html')
         else: 
             flash("Usuario no existente...")
-            return render_template('home.html')
+            return render_template('./auth/login.html')
     else:
         return render_template('./auth/login.html')
     
