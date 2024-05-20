@@ -3,16 +3,16 @@ from .entities.User import User
 class ModelUser():
     
     @classmethod
-    def login(self,db,user):
+    def login(self,db,Users):
         try:
             cursor = db.connect.cursor()
-            sql=""" SELECT id, email, password FROM user 
-                    WHERE email = '{}'""".format(user.email)
+            sql=""" SELECT Userid, email, password FROM user 
+                    WHERE email = '{}'""".format(Users.email)
             cursor.execute(sql)
             row=cursor.fetchone()
             if row  != None:
-                user = User(row[0],row[1],User.check_password(row[2],user.password))
-                return user
+                Users = User(row[0],row[1],User.check_password(row[2],Users.password))
+                return Users
             else: 
                 return None
         except Exception as ex:

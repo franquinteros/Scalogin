@@ -3,8 +3,8 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MYSQL_HOST = 'localhost'
-    MYSQL_USER = 'Root'
+    MYSQL_HOST = '127.0.0.1'
+    MYSQL_USER = 'root'
     MYSQL_PASSWORD = 'adminadmin'
     MYSQL_DB = 'Scalogin'    
     

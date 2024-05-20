@@ -17,8 +17,8 @@ def index():
 @app.route('/login', methods = ['GET','POST'])
 def login():
     if request.method == 'POST':
-        user = User(0,request.form['email'],request.form['password'])
-        logged_user = ModelUser.login(db,user)
+        Users = User(0,request.form['email'],request.form['password'])
+        logged_user = ModelUser.login(db,Users)
         if logged_user != None:
             if logged_user.password:
                 return redirect(url_for('home')) 
