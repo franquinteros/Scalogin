@@ -1,3 +1,9 @@
+{%block customCSS %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='./css/home.css') }}"
+/>
+{% endblock %}
 {% block body %}
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -136,7 +142,7 @@
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#file-earmark"></use></svg>
-                Orders
+                Orderss
               </a>
             </li>
             <li class="nav-item">
